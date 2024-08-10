@@ -79,7 +79,7 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.dispatcher import FSMContext
 import asyncio
 
-api = '7260922462:AAHcGFtyVZVXH0ifoQPGod9XrUyc3WHXoVY'
+api = '72********************************************'
 bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
