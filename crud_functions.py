@@ -18,8 +18,9 @@ def initiate_db():
 
 
 def get_all_products(id):
-    cursor.execute('SELECT * FROM Products WHERE id = ?', (id,))
-    return cursor.fetchall()[0]
+    current_product = cursor.execute('SELECT * FROM Products WHERE id = ?', (id,)).fetchall()[0]
+    connection.commit()
+    return current_product
 
 
 
