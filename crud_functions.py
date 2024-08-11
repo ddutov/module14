@@ -2,7 +2,7 @@ import sqlite3
 
 connection = sqlite3.connect('products.db')
 cursor = connection.cursor()
-connection2 = sqlite3.connect('not_telegram.db')
+connection2 = sqlite3.connect('users.db')
 cursor2 = connection2.cursor()
 
 
