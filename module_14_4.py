@@ -91,7 +91,7 @@ UPD. Задача "Продуктовая база":
 Для решения этой задачи вам понадобится код из предыдущей задачи. Дополните его, следуя пунктам задачи ниже.
 
 Дополните ранее написанный код для Telegram-бота:
-Создайте файл crud_functions.py и напишите там следующие функции:
+Создайте файл crud_functions_2.py и напишите там следующие функции:
 initiate_db, которая создаёт таблицу Products, если она ещё не создана при помощи SQL запроса.
 Эта таблица должна содержать следующие поля:
 id - целое число, первичный ключ
@@ -114,9 +114,9 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.dispatcher import FSMContext
 import asyncio
-from crud_functions import *
+from crud_functions_2 import *
 
-api = '72***************************************'
+api = '7260922462:AAGmg4xcf8I5AEifxeviDxxdQqbokwzoDYo'
 bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
@@ -159,7 +159,6 @@ async def set_info(message):
 async def get_buying_list(message):
     for i in range(1, 5):
         current_product = get_all_products(i)
-        print(current_product[1], current_product[2], current_product[3])
         with open(f'photo/pic{i}.jpg', 'rb') as img:
             await message.answer(f'Название: {current_product[1]} |'
                                  f' Описание: {current_product[2]} |'
@@ -181,15 +180,15 @@ async def get_formulas(call):
                               '10 х вес (кг) + 6.25 * рост (см) - 5 х возраст (лет) - 161')
 
 
+@dp.callback_query_handler(text='product_buying')
+async def send_confirm_message(call):
+    await call.message.answer('Вы успешно приобрели продукт!')
+
+
 @dp.callback_query_handler(text='calories')
 async def set_age(call):
     await call.message.answer('Введите свой возраст: ')
     await UserState.age.set()
-
-
-@dp.callback_query_handler(text='product_buying')
-async def send_confirm_message(call):
-    await call.message.answer('Вы успешно приобрели продукт!')
 
 
 @dp.message_handler(state=UserState.age)

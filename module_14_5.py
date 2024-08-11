@@ -91,7 +91,7 @@ UPD. Задача "Продуктовая база":
 Для решения этой задачи вам понадобится код из предыдущей задачи. Дополните его, следуя пунктам задачи ниже.
 
 Дополните ранее написанный код для Telegram-бота:
-Создайте файл crud_functions.py и напишите там следующие функции:
+Создайте файл crud_functions_2.py и напишите там следующие функции:
 initiate_db, которая создаёт таблицу Products, если она ещё не создана при помощи SQL запроса.
 Эта таблица должна содержать следующие поля:
 id - целое число, первичный ключ
@@ -110,7 +110,7 @@ get_all_products.
 Подготовка:
 Для решения этой задачи вам понадобится код из предыдущей задачи. Дополните его, следуя пунктам задачи ниже.
 
-Дополните файл crud_functions.py, написав и дополнив в нём следующие функции:
+Дополните файл crud_functions_2.py, написав и дополнив в нём следующие функции:
 initiate_db дополните созданием таблицы Users, если она ещё не создана при помощи SQL запроса.
 Эта таблица должна содержать следующие поля:
 id - целое число, первичный ключ
@@ -162,7 +162,7 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.dispatcher import FSMContext
 import asyncio
-from crud_functions import *
+from crud_functions_2 import *
 
 api = '7260922462:AAGmg4xcf8I5AEifxeviDxxdQqbokwzoDYo'
 bot = Bot(token=api)
